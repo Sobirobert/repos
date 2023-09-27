@@ -52,7 +52,7 @@ while (true)
             case "1":
                 Console.WriteLine("Wynik z podciągania");
                 var pushUps = Console.ReadLine();
-                firefighter.AddGradePushUps(pushUps);
+                firefighter.AddGradePullUps(pushUps);
                 break;
             case "2":
                 Console.WriteLine("Wynik z BeepTest");
