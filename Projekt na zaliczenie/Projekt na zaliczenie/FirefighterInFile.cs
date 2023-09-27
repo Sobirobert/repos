@@ -8,8 +8,6 @@ namespace Projekt_na_zaliczenie
 {
     public class FirefighterInFile : BaseFile
     {
-        public List<Person> firefighters = new List<Person>();
-
         private List<float> scoreBeebTest = new List<float>();
 
         private List<float> scorePullUps = new List<float>();

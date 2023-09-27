@@ -12,8 +12,8 @@ namespace Projekt_na_zaliczenie
         public string Surname { get; }
         public int Age { get; }
 
-        void AddGradePushUps(float grade);
-        void AddGradePushUps(string grade);
+        void AddGradePullUps(float grade);
+        void AddGradePullUps(string grade);
 
         void AddGradeBeepTest(float grade);
         void AddGradeBeepTest(string grade);
