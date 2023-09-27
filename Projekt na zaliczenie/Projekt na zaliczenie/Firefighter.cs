@@ -19,7 +19,8 @@ namespace Projekt_na_zaliczenie
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public int Age { get; private set; }
-        public Firefighter(string name, string surname, int age) :
+
+        public Firefighter(string name, string surname, int age):
             base(name, surname, age)
         {
             this.Name = name;

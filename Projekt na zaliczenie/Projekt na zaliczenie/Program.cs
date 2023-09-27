@@ -1,17 +1,17 @@
 ﻿using Projekt_na_zaliczenie;
 using System.Diagnostics;
 
-Console.WriteLine("Witamy w Programie do oceny testów sprawnościowych strażaków w służbie stałej");
+Console.WriteLine("Welcome to the Program for assessing fitness tests for firefighters in permanent service.");
 Console.WriteLine("========================================================");
 Console.WriteLine();
 
-Console.WriteLine("Podaj imię strażaka");
+Console.WriteLine("Enter name of firefighter.");
 var name = Console.ReadLine();
 
-Console.WriteLine("Podaj nazwisko strażaka");
+Console.WriteLine("Enter surname of firefighter.");
 var surname = Console.ReadLine();
 
-Console.WriteLine("Podaj wiek strażaka");
+Console.WriteLine("Enter age of firefighter.");
 var age = Console.ReadLine();
 int ageInt = 0;
 if (int.TryParse(age, out int number))
@@ -24,24 +24,30 @@ else
 }
 
 
-var firefighter = new FirefighterInFile(name, surname, ageInt);
+var firefighter = new Firefighter(name, surname, ageInt);
 
 firefighter.GradeAdded += EmployeeGradeAdded;
 void EmployeeGradeAdded(object sender, EventArgs args)
 {
-    Console.WriteLine("Dodano wynik.");
+    Console.WriteLine("Result added.");
 }
 
 Console.WriteLine($"Name: {firefighter.Name}, Surname: {firefighter.Surname}, Age: {firefighter.Age}");
 
 while (true)
 {
-    Console.WriteLine("Podaj wyniki z testów sprawnościowych strażaka");
-    Console.WriteLine(@"Aby wyjść kliknij 'q', albo kontynuuj");
-    Console.WriteLine(@"Aby podać wynik z podciągania wciśnij 1 ");
-    Console.WriteLine(@"Aby podać wynik z beeptestu wciśnij 2 ");
-    Console.WriteLine(@"Aby podać wynik z koperty wciśnij 3 ");
-    Console.WriteLine(@"Aby wyświetlić statystki wciśnij 4 ");
+    Console.WriteLine("Enter your firefighter fitness test results");
+    Console.WriteLine();
+    Console.WriteLine(@"To exit click 'q' or continue");
+    Console.WriteLine();
+    Console.WriteLine(@"To enter the pull-up result, press 1 ");
+    Console.WriteLine();
+    Console.WriteLine(@"To enter the beeptest result, press 2 ");
+    Console.WriteLine();
+    Console.WriteLine(@"To enter the result from the envelope, press 3 ");
+    Console.WriteLine();
+    Console.WriteLine(@"To view statistics, press 4 ");
+    Console.WriteLine();
     var inPut = Console.ReadLine();
     try
     {
@@ -50,27 +56,22 @@ while (true)
             case "q":
                 return;
             case "1":
-                Console.WriteLine("Wynik z podciągania");
+                Console.WriteLine("Pull-ups result");
                 var pushUps = Console.ReadLine();
                 firefighter.AddGradePullUps(pushUps);
                 break;
             case "2":
-                Console.WriteLine("Wynik z BeepTest");
+                Console.WriteLine("Result from BeepTest");
                 var beepTest = Console.ReadLine();
                 firefighter.AddGradeBeepTest(beepTest);
                 break;
             case "3":
-                Console.WriteLine("Wynik z Koperty");
+                Console.WriteLine("Result from the Envelope run");
                 var envelope = Console.ReadLine();
                 firefighter.AddGradeEnvelope(envelope);
                 break;
             case "4":
                 var statistics = firefighter.GetStatistics();
-                Console.WriteLine($" Podciąganie: {statistics.ScorePullUps}");
-                Console.WriteLine($" BeepTest: {statistics.ScoreBeepTest}");
-                Console.WriteLine($" Koperta: {statistics.ScoreEnvelope}");
-                Console.WriteLine($" Średnia z 3 ocen wynosi: {statistics.Average}");
-                Console.WriteLine($" Końcowa ocena jaką strażak uzyskał z testów sprawności fizycznej wynosi: {statistics.EndRating}");
                 statistics.DisplayStatictic();
                 break;
         }

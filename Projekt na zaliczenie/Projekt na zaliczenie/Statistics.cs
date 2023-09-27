@@ -89,6 +89,8 @@ namespace Projekt_na_zaliczenie
                         return 72;
                     case var score when score == 12.1f:
                         return 71;
+                    case var score when score == 12f:
+                        return 71;
                     case var score when score == 11.12f:
                         return 70;
                     case var score when score == 11.11f:
@@ -113,6 +115,8 @@ namespace Projekt_na_zaliczenie
                         return 60;
                     case var score when score == 11.1f:
                         return 59;
+                    case var score when score == 11f:
+                        return 59;
                     case var score when score == 10.11f:
                         return 58;
                     case var score when score == 10.10f:
@@ -134,6 +138,8 @@ namespace Projekt_na_zaliczenie
                     case var score when score == 10.2f:
                         return 49;
                     case var score when score == 10.1f:
+                        return 48;
+                    case var score when score == 10f:
                         return 48;
                     case var score when score == 9.11f:
                         return 47;
@@ -157,6 +163,8 @@ namespace Projekt_na_zaliczenie
                         return 38;
                     case var score when score == 9.1f:
                         return 37;
+                    case var score when score == 9f:
+                        return 37;
                     case var score when score == 8.11f:
                         return 36;
                     case var score when score == 8.10f:
@@ -179,6 +187,8 @@ namespace Projekt_na_zaliczenie
                         return 27;
                     case var score when score == 8.1f:
                         return 26;
+                    case var score when score == 8f:
+                        return 26;
                     case var score when score == 7.10f:
                         return 25;
                     case var score when score == 7.9f:
@@ -199,6 +209,8 @@ namespace Projekt_na_zaliczenie
                         return 17;
                     case var score when score == 7.1f:
                         return 16;
+                    case var score when score == 7f:
+                        return 16;
                     case var score when score == 6.10f:
                         return 15;
                     case var score when score == 6.9f:
@@ -218,6 +230,8 @@ namespace Projekt_na_zaliczenie
                     case var score when score == 6.2f:
                         return 7;
                     case var score when score == 6.1f:
+                        return 6;
+                    case var score when score == 6f:
                         return 6;
                     case var score when score == 5.9f:
                         return 5;
@@ -473,10 +487,10 @@ namespace Projekt_na_zaliczenie
         }
         public void DisplayStatictic()
         {
-            Console.WriteLine($"Wynik z podciągania: {ScorePullUps}, to daje {RatingPullUps} punktów");
-            Console.WriteLine($"Wynik z beeptestu: {ScoreBeepTest}, to daje {RatingBeepTest} punktów");
-            Console.WriteLine($"Wynik z koperty: {ScoreEnvelope}, to daje {RatingEnvelope} punktów");
-            Console.WriteLine($"Średnia punktów z 3 testów wynosi: {Average}, to daje ocenę końcową ocene {EndRating}");
+            Console.WriteLine($"Pull-Ups result: {ScorePullUps}, to daje {RatingPullUps} punktów");
+            Console.WriteLine($"Beeptest result: {ScoreBeepTest}, to daje {RatingBeepTest} punktów");
+            Console.WriteLine($"Envelope run result: {ScoreEnvelope}, to daje {RatingEnvelope} punktów");
+            Console.WriteLine($"The average score from the 3 tests is: {Average}, this gives you the final grade {EndRating}");
             Console.WriteLine();
         }
     }

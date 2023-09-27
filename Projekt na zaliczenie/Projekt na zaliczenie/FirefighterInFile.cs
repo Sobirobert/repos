@@ -8,12 +8,6 @@ namespace Projekt_na_zaliczenie
 {
     public class FirefighterInFile : BaseFile
     {
-        private List<float> scoreBeebTest = new List<float>();
-
-        private List<float> scorePullUps = new List<float>();
-
-        private List<float> scoreEnvelope = new List<float>();
-
         private const string fileNamePullUps = "gradesPullUps.txt";
         private const string fileNameBeepTest = "gradesBeepTest.txt";
         private const string fileNameEnvelope = "gradesEnvelope.txt";
@@ -22,7 +16,7 @@ namespace Projekt_na_zaliczenie
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public int Age { get; private set; }
-        public FirefighterInFile(string name, string surname, int age) :
+        public FirefighterInFile(string name, string surname, int age):
             base(name, surname, age)
         {
             this.Name = name;
@@ -128,10 +122,20 @@ namespace Projekt_na_zaliczenie
             var scorePullUpsFromFile = this.ReadGradesFromFilePullUps();
             var scoreBeepTestFromFile = this.ReadGradesFromFileBeepTest();
             var scoreEnvelopeFromFile = this.ReadGradesFromFileEnvelope();
-            var result = this.CountStatisticsPullUps(scorePullUpsFromFile);
-            var result2 = this.CountStatisticsBeepTest(scoreBeepTestFromFile);
-            var result3 = this.CountStatisticsBeepTest(scoreEnvelopeFromFile);
-            return result;
+            var statistics = new Statistics();
+            foreach (var score in scorePullUpsFromFile)
+            {
+                statistics.AddScorePullUps(score);
+            }
+            foreach (var score in scoreBeepTestFromFile)
+            {
+                statistics.AddScoreBeepTest(score);
+            }
+            foreach (var score in scoreEnvelopeFromFile)
+            {
+                statistics.AddScoreEnvelope(score);
+            }
+            return statistics;
         }
 
         private Statistics CountStatisticsPullUps(List<float> grades)
