@@ -72,6 +72,7 @@ while (true)
                 break;
             case "4":
                 var statistics = firefighter.GetStatistics();
+
                 statistics.DisplayStatictic();
                 break;
         }
