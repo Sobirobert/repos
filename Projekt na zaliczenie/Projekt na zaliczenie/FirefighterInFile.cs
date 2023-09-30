@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Projekt_na_zaliczenie
+﻿namespace Projekt_na_zaliczenie
 {
-    public class FirefighterInFile : BaseFile
+    public class FireFighterInFile : BaseFile
     {
         private const string fileNamePullUps = "gradesPullUps.txt";
         private const string fileNameBeepTest = "gradesBeepTest.txt";
@@ -16,7 +10,7 @@ namespace Projekt_na_zaliczenie
         public string Name { get; private set; }
         public string Surname { get; private set; }
         public int Age { get; private set; }
-        public FirefighterInFile(string name, string surname, int age):
+        public FireFighterInFile(string name, string surname, int age):
             base(name, surname, age)
         {
             this.Name = name;
@@ -43,18 +37,6 @@ namespace Projekt_na_zaliczenie
             }
         }
 
-        public override void AddGradePullUps(string grade)
-        {
-            if (float.TryParse(grade, out float number))
-            {
-                this.AddGradePullUps(number);
-            }
-            else
-            {
-                throw new Exception("Incorrect value");
-            }
-        }
-
         public override void AddGradeBeepTest(float grade)
         {
             if (grade >= 0 && grade <= 12.5)
@@ -72,19 +54,7 @@ namespace Projekt_na_zaliczenie
             {
                 throw new Exception("Invalid score value");
             }
-        }
-
-        public override void AddGradeBeepTest(string grade)
-        {
-            if (float.TryParse(grade, out float number))
-            {
-                this.AddGradeBeepTest(number);
-            }
-            else
-            {
-                throw new Exception("Incorrect value");
-            }
-        }
+        } 
 
         public override void AddGradeEnvelope(float grade)
         {
@@ -102,18 +72,6 @@ namespace Projekt_na_zaliczenie
             else
             {
                 throw new Exception("Invalid score value");
-            }
-        }
-
-        public override void AddGradeEnvelope(string grade)
-        {
-            if (float.TryParse(grade, out float number))
-            {
-                this.AddGradeEnvelope(number);
-            }
-            else
-            {
-                throw new Exception("Incorrect value");
             }
         }
 
@@ -138,33 +96,6 @@ namespace Projekt_na_zaliczenie
             return statistics;
         }
 
-        private Statistics CountStatisticsPullUps(List<float> grades)
-        {
-            var statistics = new Statistics();
-            foreach (var grade in grades)
-            {
-                statistics.AddScorePullUps(grade);
-            }
-            return statistics;
-        }
-        private Statistics CountStatisticsBeepTest(List<float> grades)
-        {
-            var statistics = new Statistics();
-            foreach (var grade in grades)
-            {
-                statistics.AddScoreBeepTest(grade);
-            }
-            return statistics;
-        }
-        private Statistics CountStatisticsEnvelope(List<float> grades)
-        {
-            var statistics = new Statistics();
-            foreach (var grade in grades)
-            {
-                statistics.AddScoreEnvelope(grade);
-            }
-            return statistics;
-        }
         private List<float> ReadGradesFromFilePullUps()
         {
             var grades = new List<float>();

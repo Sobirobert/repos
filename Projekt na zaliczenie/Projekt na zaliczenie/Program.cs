@@ -12,11 +12,11 @@ Console.WriteLine("Enter surname of firefighter.");
 var surname = Console.ReadLine();
 
 Console.WriteLine("Enter age of firefighter.");
-var age = Console.ReadLine();
-int ageInt = 0;
-if (int.TryParse(age, out int number))
+var userInPut = Console.ReadLine();
+int age = 0;
+if (int.TryParse(userInPut, out int number))
 {
-    ageInt = number;
+    age = number;
 }
 else
 {
@@ -24,7 +24,7 @@ else
 }
 
 
-var firefighter = new Firefighter(name, surname, ageInt);
+var firefighter = new FireFighter(name, surname, age);
 
 firefighter.GradeAdded += EmployeeGradeAdded;
 void EmployeeGradeAdded(object sender, EventArgs args)

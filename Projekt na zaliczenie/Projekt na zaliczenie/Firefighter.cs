@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Projekt_na_zaliczenie
+﻿namespace Projekt_na_zaliczenie
 {
-    public class Firefighter : BaseFile
+    public class FireFighter : BaseFile
     {
         private List<float> scoreBeebTest = new List<float>();
 
@@ -20,7 +13,7 @@ namespace Projekt_na_zaliczenie
         public string Surname { get; private set; }
         public int Age { get; private set; }
 
-        public Firefighter(string name, string surname, int age):
+        public FireFighter(string name, string surname, int age):
             base(name, surname, age)
         {
             this.Name = name;
@@ -44,18 +37,6 @@ namespace Projekt_na_zaliczenie
             }
         }
 
-        public override void AddGradePullUps(string grade)
-        {
-            if (float.TryParse(grade, out float number))
-            {
-                this.AddGradePullUps(number);
-            }
-            else
-            {
-                throw new Exception("Incorrect value");
-            }
-        }
-
         public override void AddGradeBeepTest(float grade)
         {
             if (grade >= 0 && grade <= 12.5)
@@ -72,18 +53,6 @@ namespace Projekt_na_zaliczenie
             }
         }
 
-        public override void AddGradeBeepTest(string grade)
-        {
-            if (float.TryParse(grade, out float number))
-            {
-                this.AddGradeBeepTest(number);
-            }
-            else
-            {
-                throw new Exception("Incorrect value");
-            }
-        }
-
         public override void AddGradeEnvelope(float grade)
         {
             if (grade >= 0 && grade <= 22)
@@ -97,18 +66,6 @@ namespace Projekt_na_zaliczenie
             else
             {
                 throw new Exception("Invalid score value");
-            }
-        }
-
-        public override void AddGradeEnvelope(string grade)
-        {
-            if (float.TryParse(grade, out float number))
-            {
-                this.AddGradeEnvelope(number);
-            }
-            else
-            {
-                throw new Exception("Incorrect value");
             }
         }
 
